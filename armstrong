@@ -1,0 +1,15 @@
+n = 153
+
+t = n
+a = len(str(n))
+sum = 0
+
+while t:
+    digit = t % 10
+    sum += digit ** a
+    t //= 10
+
+if sum == n:
+    print("Yes")
+else:
+    print("No")
