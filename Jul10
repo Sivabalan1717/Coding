@@ -1,0 +1,16 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        hash= {}
+        for num in nums:
+            if num in hash:
+                hash[num]+= 1
+            else:
+                hash[num]=1
+                
+        for val,fre in hash.items():
+            if fre==1:
+                return val
