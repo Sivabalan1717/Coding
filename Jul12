@@ -1,0 +1,23 @@
+class Solution:
+    def longestSubarray(self, arr, k):
+        prefix_map = {}
+        curr_sum = 0
+        maxi = 0
+
+        for i in range(len(arr)):
+            curr_sum += arr[i]
+
+            # If the sum from index 0 to i is k
+            if curr_sum == k:
+                maxi = i + 1
+
+            # Check if there exists a previous prefix sum
+            if (curr_sum - k) in prefix_map:
+                length = i - prefix_map[curr_sum - k]
+                maxi = max(maxi, length)
+
+            # Store only the first occurrence of each prefix sum
+            if curr_sum not in prefix_map:
+                prefix_map[curr_sum] = i
+
+        return maxi
