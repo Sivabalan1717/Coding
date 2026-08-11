@@ -1,0 +1,42 @@
+class Solution(object):
+    def sortedSquares(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        
+        i = 0
+        n= len(nums)
+        j=  n-1
+        res= [0]*n
+        for a in range(n-1, -1,-1):
+            if (abs(nums[i])<abs(nums[j])):
+                res[a]=nums[j]*nums[j]
+                j-= 1
+            else:
+                res[a]=nums[i]*nums[i]
+                i+=1
+        return res
+                
+            
+        class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+       # if len(nums)<3:
+           # return nums
+        
+        hash= {}
+        for num in nums:
+            if num in hash:
+                hash[num]+=1
+            else:
+                hash[num]= 1
+        re=[]
+        for val, fre in hash.items():
+            if fre >len(nums)//3:
+                re.append(val)
+        return re
+        
