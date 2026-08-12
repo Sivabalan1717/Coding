@@ -1,0 +1,28 @@
+class Solution(object):
+    def longestConsecutive(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        arr= set(nums)
+        maximum = 1
+        
+        for num in nums:
+            if num-1 not in arr:
+            count= 1
+        
+            while num+1 in arr:
+                num+= 1
+                count+= 1
+                maximum= max(maximum,count)
+            
+            
+            
+            
+        return maximum
+                
+            
+        
+        
