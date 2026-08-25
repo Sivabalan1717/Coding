@@ -1,0 +1,31 @@
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x<0:
+            return False
+        n=x
+        rev= 0
+        while(n):
+            r= n%10
+            rev= rev*10+r
+            n/=10
+        return rev==x
+class Solution(object):
+    def findMin(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        l=0
+        r= len(nums)-1
+        while(l<r):
+            m= (r+l)//2
+            if nums[m]>nums[r]:
+                l=m+1
+            else:
+                r=m
+        return nums[l]
+        
