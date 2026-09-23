@@ -1,0 +1,53 @@
+# Node class
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.next = None
+
+# Queue class template
+class myQueue:
+    def __init__(self):
+        # Initialize your data members
+        self.front=None
+        self.rear=None
+        self.count=0
+        
+
+    def isEmpty(self):
+        # Return True if queue is empty, else False
+        if not self.count:
+            return True
+        return False
+        
+    def enqueue(self, x):
+        # Add element x to the rear
+        new=Node(x)
+        if self.isEmpty():
+            self.front=new
+            self.rear=new
+        else:
+            self.rear.next=new
+            self.rear=new
+        self.count+=1
+            
+        
+        
+        
+    def dequeue(self):
+        # Remove the front element
+        val=self.front.data
+        self.front=self.front.next
+        self.count-=1
+        return val
+        
+
+    def getFront(self):
+        # Return front element
+        # return -1 if empty
+        if self.isEmpty():
+            return -1
+        return self.front.data
+
+    def size(self):
+        # Return current size
+        return self.count
