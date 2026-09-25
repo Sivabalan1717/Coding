@@ -1,0 +1,58 @@
+class Solution:
+    def largestUniqueNumber(self, nums):
+        has = {}
+
+        # Count frequency
+        for n in nums:
+            if n in has:
+                has[n] += 1
+            else:
+                has[n] = 1
+
+        # Find largest number with frequency 1
+        maxi = -1
+
+        for val, freq in has.items():
+            if freq == 1:
+                maxi = max(maxi, val)
+
+        return maxi
+
+        class Solution:
+    def infixToPostfix(self, s):
+        stack = []
+        result = ""
+
+        precedence = {
+            '^': 3,
+            '*': 2,
+            '/': 2,
+            '+': 1,
+            '-': 1
+        }
+
+        for ch in s:
+
+            if ch.isalnum():
+                result += ch
+
+            elif ch == '(':
+                stack.append(ch)
+
+            elif ch == ')':
+                while stack and stack[-1] != '(':
+                    result += stack.pop()
+                stack.pop()
+
+            else:
+                while (stack and stack[-1] != '(' and
+                       (precedence[stack[-1]] > precedence[ch] or
+                        (precedence[stack[-1]] == precedence[ch] and ch != '^'))):
+                    result += stack.pop()
+
+                stack.append(ch)
+
+        while stack:
+            result += stack.pop()
+
+        return result
