@@ -1,0 +1,67 @@
+class MinStack(object):
+
+    def __init__(self):
+        self.s1=[]
+        self.s2=[]
+
+        
+
+    def push(self, value):
+        """
+        :type value: int
+        :rtype: None
+        """
+       # if not self.s1 and not self.s2:
+        #self.s1.append(value)
+            #self.s2.append(value)
+
+        self.s1.append(value)
+        if not self.s2 or value<=self.s2[-1]:
+            self.s2.append(value)
+
+
+        
+
+    def pop(self):
+        """
+        :rtype: None
+        """
+        a=self.s1.pop()
+        if a==self.s2[-1]:
+        
+            self.s2.pop()
+
+
+    def top(self):
+        """
+        :rtype: int
+        """
+        return self.s1[-1]
+
+    def getMin(self):
+        """
+        :rtype: int
+        """
+        if self.s2:
+            return self.s2[-1]
+        return -1
+        
+
+
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(value)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
+
+class Solution(object):
+    def intersection(self, nums1, nums2):
+        s = set(nums2)
+        ans = set()
+
+        for n in nums1:
+            if n in s:
+                ans.add(n)
+
+        return list(ans)
