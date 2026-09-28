@@ -1,0 +1,22 @@
+class Solution:
+	def isAutomorphic(self, n):
+		# code here
+	#	r=n%10
+	#	if r==0 or r==1 or r==5 or r==6 :
+        
+        if n==1 or n==0 or n==5 or n==6:
+            return "Automorphic"
+        if n<100:
+            sq=n*n
+            if sq%100 == n:
+                return "Automorphic"
+            else:
+                return "Not Automorphic"
+        if n>=100:
+            sq=n*n
+            if sq%1000 == n:
+                return "Automorphic"
+            else:
+                return "Not Automorphic"
+
+        
