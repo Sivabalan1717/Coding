@@ -1,0 +1,17 @@
+class Solution(object):
+    def countDigits(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        n=num
+        co=0
+        while(n):
+            r=n%10
+            if (num%r==0):
+                co+=1
+            n//=10
+        return co
+            
+
+        
