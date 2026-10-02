@@ -1,0 +1,29 @@
+class Solution(object):
+    def asteroidCollision(self, asteroids):
+        s = []
+
+        for a in asteroids:
+            alive = True
+
+            while s and a < 0 and s[-1] > 0:
+                top = s[-1]
+
+                # Current asteroid is bigger
+                if top < -a:
+                    s.pop()
+
+                # Both are same size
+                elif a == -top:
+                    s.pop()
+                    alive = False
+                    break
+
+                # Stack asteroid is bigger
+                else:
+                    alive = False
+                    break
+
+            if alive:
+                s.append(a)
+
+        return s
