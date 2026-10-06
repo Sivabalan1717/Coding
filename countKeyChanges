@@ -1,0 +1,13 @@
+Sivabalan M ,BE ECE ,day 11
+
+class Solution(object):
+    def countKeyChanges(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        co=0
+        for a in range(len(s)-1):
+            if s[a].lower()!=s[a+1].lower():
+                co+=1
+        return co
